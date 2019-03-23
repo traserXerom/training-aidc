@@ -5,14 +5,20 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.anabatic.training.users.persistence.dao.RoleDao;
 import com.anabatic.training.users.persistence.model.Role;
 import com.anabatic.training.users.persistence.model.User;
 import com.anabatic.training.users.test.persistence.configuration.BaseDaoTest;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@RunWith(SpringJUnit4ClassRunner.class)
 public class RoleDaoTest extends BaseDaoTest{
 	
 	@Autowired
@@ -35,7 +41,7 @@ public class RoleDaoTest extends BaseDaoTest{
 		expectedRole.setName("role_2");
 		
 		
-		assertEquals(expectedRole, role);
+		assertEquals(expectedRole.getId(), role.getId());
 	}	
 		
 	//@Test

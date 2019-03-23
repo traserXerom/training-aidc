@@ -1,6 +1,10 @@
 logs/
 /.metadata/
 training-project/trainings/.factorypath
+training-project/trainings/.settings/
+training-project/trainings/.project
+training-project/trainings/.classpath
+training-project/trainings/trainings-businessprocess/.factorypath
 training-project/trainings/trainings-businessprocess/.settings/
 training-project/trainings/trainings-businessprocess/.project
 training-project/trainings/trainings-businessprocess/.classpath
@@ -25,6 +29,11 @@ training-project/trainings/trainings-service/.settings/
 training-project/trainings/trainings-service/target/
 training-project/trainings/trainings-service/.project
 training-project/trainings/trainings-service/.classpath
+training-project/users/.settings/
+training-project/users/target/
+training-project/users/.project
+training-project/users/.classpath
+training-project/users/users-businessprocess/.factorypath
 training-project/users/users-businessprocess/.settings/
 training-project/users/users-businessprocess/target/
 training-project/users/users-businessprocess/.project

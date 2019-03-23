@@ -35,22 +35,46 @@ public class RoleConverterImpl implements RoleConverter {
 
 	
 
+//	@Override
+//	public RoleResponse toContract(Role role) {
+//		RoleResponse response = new RoleResponse();
+//		response.setId(role.getId());
+//		response.setName(role.getName());
+//		
+//		List<UserBean> users = new ArrayList<UserBean>();
+//		for (User user : role.getUsers()) {
+//			UserBean bean = new UserBean();
+//			bean.setName(user.getName());
+//			bean.setPass(user.getPassword());
+//			
+//		}
+//		response.setUsers(users);
+//		
+//		return response;
+//	}
+
+
+
 	@Override
-	public RoleResponse toContract(Role role) {
-		RoleResponse response = new RoleResponse();
-		response.setId(role.getId());
-		response.setName(role.getName());
-		
-		List<UserBean> users = new ArrayList<UserBean>();
-		for (User user : role.getUsers()) {
-			UserBean bean = new UserBean();
-			bean.setName(user.getName());
-			bean.setPass(user.getPassword());
-			
-		}
-		response.setUsers(users);
-		
-		return response;
+	public List<Role> toModels(List<RoleRequest> objects) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Role toContract(RoleResponse object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public List<Role> toContracts(List<RoleResponse> objects) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

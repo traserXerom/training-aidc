@@ -43,7 +43,7 @@ public class RoleController {
 		role = roleDao.save(role);
 		
 		BaseResponse response = new BaseResponse();
-		response.setResponse(roleConverter.toContract(role));
+		//response.setResponse(roleConverter.toContract(role));
 		
 		return ResponseEntity.ok().body(response);
 	}

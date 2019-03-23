@@ -2,8 +2,12 @@ package com.anabatic.training.users.test.persistence.dao;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.anabatic.training.users.persistence.dao.RoleDao;
 import com.anabatic.training.users.persistence.dao.UserDao;
@@ -11,6 +15,8 @@ import com.anabatic.training.users.persistence.model.User;
 import com.anabatic.training.users.test.persistence.configuration.BaseDaoTest;
 
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@RunWith(SpringJUnit4ClassRunner.class)
 public class UserDaoTest extends BaseDaoTest{
 
 	@Override
