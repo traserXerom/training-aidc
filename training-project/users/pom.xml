@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.0.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.anabatic.training.users</groupId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<name>Users</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<anabatic.generic.version>1.0.0.1-SNAPSHOT</anabatic.generic.version>
+		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+		<org.dbunit.version>2.4.9</org.dbunit.version>
+	</properties>
+
+	<modules>
+		<module>users-core</module>
+		<module>users-persistence</module>
+		<module>users-service</module>
+		<module>users-endpoint</module>
+		<module>users-businessprocess</module>
+	</modules>
+	<artifactId>users</artifactId>
+</project>
