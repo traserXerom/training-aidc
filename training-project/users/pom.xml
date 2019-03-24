@@ -13,7 +13,7 @@
 	<groupId>com.anabatic.training.users</groupId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	
+
 	<name>Users</name>
 
 	<properties>
@@ -22,7 +22,7 @@
 		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
 		<org.dbunit.version>2.4.9</org.dbunit.version>
 	</properties>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

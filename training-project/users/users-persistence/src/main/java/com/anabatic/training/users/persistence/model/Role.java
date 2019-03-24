@@ -48,10 +48,17 @@ public class Role extends TypicalGenericModel{
 				+ getStatus() + "]";
 	}
 
+	
+	public Role(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.setClientId("1");
+	}
+
 	public Role(String name) {
 		super();
 		this.name = name;
-		
 		this.setClientId("1");
 	}
 
