@@ -11,16 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.anabatic.generic.endpoint.contract.BaseResponse;
 import com.anabatic.training.users.endpoint.converter.RoleConverter;
+import com.anabatic.training.users.endpoint.param.contract.RoleGetByIdRequest;
 import com.anabatic.training.users.endpoint.param.contract.RoleRequest;
-import com.anabatic.training.users.persistence.dao.RoleDao;
+import com.anabatic.training.users.endpoint.param.contract.UserGetByIdRequest;
 import com.anabatic.training.users.persistence.model.Role;
+import com.anabatic.training.users.persistence.model.User;
+import com.anabatic.training.users.service.RoleService;
 
 @RestController
 @RequestMapping("/role")
 public class RoleController {
 	
 	@Autowired
-	private RoleDao roleDao;
+	private RoleService roleService;
 	
 	@Autowired
 	private RoleConverter roleConverter;
@@ -28,7 +31,7 @@ public class RoleController {
 	
 	@PostMapping("")
 	public ResponseEntity<BaseResponse> getAll(){
-		List<Role> roles = roleDao.getAll();
+		List<Role> roles = roleService.getAll();
 		
 		BaseResponse response = new BaseResponse();
 		response.setResponse(roles);
@@ -40,11 +43,19 @@ public class RoleController {
 	public ResponseEntity<BaseResponse> insert(@RequestBody RoleRequest roleRequest ){
 		
 		Role role = roleConverter.toModel(roleRequest);
-		role = roleDao.save(role);
+		role = roleService.save(role);
+		BaseResponse response = new BaseResponse();
+		response.setResponse(roleConverter.toContract(role));
+		return ResponseEntity.ok().body(response);
+	}
+	
+	@PostMapping("/getbyid")
+	public ResponseEntity<BaseResponse> getById(@RequestBody RoleGetByIdRequest roleGetByIdRequest){
+		
+		Role role = roleService.get(roleGetByIdRequest.getId());
 		
 		BaseResponse response = new BaseResponse();
-		//response.setResponse(roleConverter.toContract(role));
-		
+		response.setResponse(roleConverter.toContract(role));
 		return ResponseEntity.ok().body(response);
 	}
 }

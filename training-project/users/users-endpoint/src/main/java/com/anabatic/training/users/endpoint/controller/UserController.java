@@ -15,19 +15,20 @@ import com.anabatic.training.users.endpoint.param.contract.UserGetByIdRequest;
 import com.anabatic.training.users.endpoint.param.contract.UserInsertRequest;
 import com.anabatic.training.users.persistence.dao.UserDao;
 import com.anabatic.training.users.persistence.model.User;
+import com.anabatic.training.users.service.UserService;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
 	@Autowired
-	private UserDao userDao;
+	private UserService userService;
 	@Autowired
 	private UserConverter userConverter;
 	
 	@PostMapping("")
 	public ResponseEntity<BaseResponse> getAll(){
-		List<User> users = userDao.getAll();
+		List<User> users = userService.getAll();
 		
 		BaseResponse response = new BaseResponse();
 		response.setResponse(users);
@@ -39,7 +40,7 @@ public class UserController {
 	public ResponseEntity<BaseResponse> insert(@RequestBody UserInsertRequest userRequest){
 		
 		User user = userConverter.toModel(userRequest);
-		user = userDao.save(user);
+		user = userService.save(user);
 		
 		BaseResponse response = new BaseResponse();
 		response.setResponse(userConverter.toContract(user));
@@ -49,7 +50,7 @@ public class UserController {
 	@PostMapping("/getbyid")
 	public ResponseEntity<BaseResponse> getById(@RequestBody UserGetByIdRequest userGetByIdRequest){
 		
-		User user = userDao.get(userGetByIdRequest.getId());
+		User user = userService.get(userGetByIdRequest.getId());
 		
 		BaseResponse response = new BaseResponse();
 		response.setResponse(userConverter.toContract(user));
