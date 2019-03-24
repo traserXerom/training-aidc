@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.anabatic.generic.persistence.model.TypicalGenericModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="training_role")
@@ -31,9 +32,8 @@ public class Role extends TypicalGenericModel{
 	private String name;
 	
 	@OneToMany(mappedBy="role", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JsonIgnore
 	private List<User> users;
-	
-	
 
 	public Role() {
 		super();

@@ -1,5 +1,6 @@
 package com.anabatic.training.users.persistence.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -37,8 +38,8 @@ public class User extends TypicalGenericModel
 	@Column(name="user_password")
 	private String password;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="role_id")
+	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
+	@JoinColumn(name="role_id", referencedColumnName="role_id")
 	@JsonIgnore
 	private Role role;
 	

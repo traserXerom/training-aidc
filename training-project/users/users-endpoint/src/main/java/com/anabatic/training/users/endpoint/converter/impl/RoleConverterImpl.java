@@ -20,16 +20,6 @@ public class RoleConverterImpl implements RoleConverter {
 		}
 		role.setClientId("1");
 		role.setName(object.getName());
-		role.setUsers(new ArrayList<User>());
-		for (UserBean userBean : object.getUsers()) {
-			User user = new User();
-			user.setName(userBean.getName());
-			user.setPassword(userBean.getPass());
-			user.setClientId("1");
-			user.setRole(role);
-			role.getUsers().add(user);
-		}
-		
 		return role;
 	}
 
@@ -49,13 +39,6 @@ public class RoleConverterImpl implements RoleConverter {
 			role.setId(object.getId());
 		}
 		role.setName(object.getName());
-		role.setUsers(new ArrayList<UserBean>());
-		for (User userBean : object.getUsers()) {
-			UserBean user = new UserBean();
-			user.setName(userBean.getName());
-			user.setPass(userBean.getPassword());
-			role.getUsers().add(user);
-		}
 		return role;
 	}
 

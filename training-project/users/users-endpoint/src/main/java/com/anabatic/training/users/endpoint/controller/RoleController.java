@@ -13,9 +13,7 @@ import com.anabatic.generic.endpoint.contract.BaseResponse;
 import com.anabatic.training.users.endpoint.converter.RoleConverter;
 import com.anabatic.training.users.endpoint.param.contract.RoleGetByIdRequest;
 import com.anabatic.training.users.endpoint.param.contract.RoleRequest;
-import com.anabatic.training.users.endpoint.param.contract.UserGetByIdRequest;
 import com.anabatic.training.users.persistence.model.Role;
-import com.anabatic.training.users.persistence.model.User;
 import com.anabatic.training.users.service.RoleService;
 
 @RestController

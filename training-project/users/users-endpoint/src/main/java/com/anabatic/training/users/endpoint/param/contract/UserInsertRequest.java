@@ -1,12 +1,12 @@
 package com.anabatic.training.users.endpoint.param.contract;
 
-import com.anabatic.generic.endpoint.contract.BaseTypicalRequest;
-import com.anabatic.training.users.persistence.model.Role;
+import com.anabatic.generic.persistence.annotation.IsRequired;
 
-public class UserInsertRequest extends BaseTypicalRequest{
+public class UserInsertRequest {
 	private String name;
 	private String pass;
-	private Role role;
+	@IsRequired
+	private Long role;
 	
 	public String getName() {
 		return name;
@@ -20,10 +20,10 @@ public class UserInsertRequest extends BaseTypicalRequest{
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	public Role getRole() {
+	public Long getRole() {
 		return role;
 	}
-	public void setRole(Role role) {
+	public void setRole(Long role) {
 		this.role = role;
 	}
 }

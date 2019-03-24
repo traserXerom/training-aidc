@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anabatic.generic.endpoint.contract.BaseResponse;
+import com.anabatic.generic.persistence.validator.field.ValidationCheck;
 import com.anabatic.training.users.endpoint.converter.UserConverter;
 import com.anabatic.training.users.endpoint.param.contract.UserGetByIdRequest;
 import com.anabatic.training.users.endpoint.param.contract.UserInsertRequest;
-import com.anabatic.training.users.persistence.dao.UserDao;
 import com.anabatic.training.users.persistence.model.User;
 import com.anabatic.training.users.service.UserService;
 
@@ -38,7 +38,7 @@ public class UserController {
 	
 	@PostMapping("/insert")
 	public ResponseEntity<BaseResponse> insert(@RequestBody UserInsertRequest userRequest){
-		
+		ValidationCheck.hasValidate(userRequest);
 		User user = userConverter.toModel(userRequest);
 		user = userService.save(user);
 		
@@ -49,7 +49,7 @@ public class UserController {
 	
 	@PostMapping("/getbyid")
 	public ResponseEntity<BaseResponse> getById(@RequestBody UserGetByIdRequest userGetByIdRequest){
-		
+		ValidationCheck.hasValidate(userGetByIdRequest);
 		User user = userService.get(userGetByIdRequest.getId());
 		
 		BaseResponse response = new BaseResponse();

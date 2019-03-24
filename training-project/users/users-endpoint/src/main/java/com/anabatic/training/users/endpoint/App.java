@@ -5,8 +5,11 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.anabatic.generic.endpoint.controlleradvice.GenericControllerAdvice;
 
 /**
  * Hello world!
@@ -24,6 +27,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 "classpath*:applicationContext-generic-endpoint.xml",
 "classpath*:applicationContext-generic-service.xml"})
 @ComponentScan(basePackages={"com.anabatic.training.users.endpoint.controller"})
+@Import(value= {GenericControllerAdvice.class})
 public class App 
 {
 	public static void main(String[] args) {

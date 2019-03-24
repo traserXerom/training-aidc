@@ -3,7 +3,10 @@ package com.anabatic.training.users.endpoint.param.contract;
 import java.util.List;
 
 import com.anabatic.training.users.endpoint.param.bean.UserBean;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(value=Include.NON_NULL)
 public class RoleResponse {
 	private Long id;
 	private String name;

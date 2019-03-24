@@ -6,6 +6,7 @@ import java.util.List;
 import com.anabatic.training.users.endpoint.converter.UserConverter;
 import com.anabatic.training.users.endpoint.param.contract.UserInsertRequest;
 import com.anabatic.training.users.endpoint.param.contract.UserResponse;
+import com.anabatic.training.users.persistence.model.Role;
 import com.anabatic.training.users.persistence.model.User;
 
 public class UserConverterImpl implements UserConverter {
@@ -15,7 +16,9 @@ public class UserConverterImpl implements UserConverter {
 		User user = new User();
 		user.setName(object.getName());
 		user.setPassword(object.getPass());
-		user.setRole(object.getRole());
+		Role role = new Role();
+		role.setId(object.getRole());
+		user.setRole(role);
 		user.setClientId("1");
 		return user;
 	}
