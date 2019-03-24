@@ -10,52 +10,50 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anabatic.generic.endpoint.contract.BaseResponse;
-import com.anabatic.training.users.endpoint.converter.RoleConverter;
-import com.anabatic.training.users.endpoint.param.contract.RoleGetByIdRequest;
-import com.anabatic.training.users.endpoint.param.contract.RoleRequest;
+import com.anabatic.training.users.endpoint.converter.UserConverter;
 import com.anabatic.training.users.endpoint.param.contract.UserGetByIdRequest;
-import com.anabatic.training.users.persistence.model.Role;
+import com.anabatic.training.users.endpoint.param.contract.UserInsertRequest;
+import com.anabatic.training.users.persistence.dao.UserDao;
 import com.anabatic.training.users.persistence.model.User;
-import com.anabatic.training.users.service.RoleService;
+import com.anabatic.training.users.service.UserService;
 
 @RestController
-@RequestMapping("/role")
-public class RoleController {
-	
+@RequestMapping("/user")
+public class UserController {
+
 	@Autowired
-	private RoleService roleService;
-	
+	private UserService userService;
 	@Autowired
-	private RoleConverter roleConverter;
-	
+	private UserConverter userConverter;
 	
 	@PostMapping("")
 	public ResponseEntity<BaseResponse> getAll(){
-		List<Role> roles = roleService.getAll();
+		List<User> users = userService.getAll();
 		
 		BaseResponse response = new BaseResponse();
-		response.setResponse(roles);
+		response.setResponse(users);
 		
 		return ResponseEntity.ok().body(response);
 	}
 	
 	@PostMapping("/insert")
-	public ResponseEntity<BaseResponse> insert(@RequestBody RoleRequest roleRequest ){
+	public ResponseEntity<BaseResponse> insert(@RequestBody UserInsertRequest userRequest){
 		
-		Role role = roleConverter.toModel(roleRequest);
-		role = roleService.save(role);
+		User user = userConverter.toModel(userRequest);
+		user = userService.save(user);
+		
 		BaseResponse response = new BaseResponse();
-		response.setResponse(roleConverter.toContract(role));
+		response.setResponse(userConverter.toContract(user));
 		return ResponseEntity.ok().body(response);
 	}
 	
 	@PostMapping("/getbyid")
-	public ResponseEntity<BaseResponse> getById(@RequestBody RoleGetByIdRequest roleGetByIdRequest){
+	public ResponseEntity<BaseResponse> getById(@RequestBody UserGetByIdRequest userGetByIdRequest){
 		
-		Role role = roleService.get(roleGetByIdRequest.getId());
+		User user = userService.get(userGetByIdRequest.getId());
 		
 		BaseResponse response = new BaseResponse();
-		response.setResponse(roleConverter.toContract(role));
+		response.setResponse(userConverter.toContract(user));
 		return ResponseEntity.ok().body(response);
 	}
 }

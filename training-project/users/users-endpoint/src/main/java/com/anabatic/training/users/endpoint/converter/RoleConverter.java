@@ -6,6 +6,6 @@ import com.anabatic.training.users.endpoint.param.contract.RoleRequest;
 import com.anabatic.training.users.endpoint.param.contract.RoleResponse;
 import com.anabatic.training.users.persistence.model.Role;
 
-public interface RoleConverter extends ToModelConverter<RoleRequest, Role>, ToContractConverter<RoleResponse, Role> {
+public interface RoleConverter extends ToModelConverter<RoleRequest, Role>, ToContractConverter<Role, RoleResponse> {
 
 }

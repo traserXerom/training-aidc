@@ -9,6 +9,7 @@
 	<!-- Converter -->
 	<bean id="roleConverter" 
 		class="com.anabatic.training.users.endpoint.converter.impl.RoleConverterImpl" />
-	
+	<bean id="userConverter" 
+		class="com.anabatic.training.users.endpoint.converter.impl.UserConverterImpl" />
 	
 </beans>
