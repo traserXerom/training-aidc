@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<core_training training_id="11" training_name="eleven_training"
+		training_description="training sebelas"  version="0"  authoriser="admin3" 
+	  	created_by="admin" created_time="2019-12-31 23:56:55.0" 
+	  	status="LIVE" updated_by="admin"
+	  	client_id="123123123"/>
+	<training_user training_user_id="11" user_id="11" training_id="11" version="0"  authoriser="admin3" 
+	  	created_by="admin" created_time="2019-12-31 23:56:55.0" 
+	  	status="LIVE" updated_by="admin"
+	  	client_id="123123123"/>
+	<training_user training_user_id="12" user_id="12" training_id="11" version="0"  authoriser="admin3" 
+	  	created_by="admin" created_time="2019-12-31 23:56:55.0" 
+	  	status="LIVE" updated_by="admin"
+	  	client_id="123123123"/>
+	
+	<training_detail training_detail_id="11" training_location="Jakarta"
+		training_start_date="2019-01-01 00:00:00.0" training_end_date="2019-01-10 00:00:00.0"
+		trainer_name="trainer sebelas" training_time="60" training_id="11" version="0"  authoriser="admin3" 
+	  	created_by="admin" created_time="2019-12-31 23:56:55.0" 
+	  	status="LIVE" updated_by="admin"
+	  	client_id="123123123"/>
+	
+</dataset>

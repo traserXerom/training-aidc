@@ -97,7 +97,7 @@ public class Training extends TypicalGenericModel {
 	@Override
 	public String toString() {
 		return "Training [id=" + id + ", name=" + name + ", description=" + description + ", trainingDetail="
-				+ trainingDetail + ", trainingUsers=" + trainingUsers + "]";
+				+ trainingDetail.toString() + "]";
 	}
 	
 	

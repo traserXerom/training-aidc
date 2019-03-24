@@ -30,21 +30,21 @@ public class RoleDaoTest extends BaseDaoTest{
 		return "training-role-dataset.xml";
 	}
 
-	 @Test
+	@Test
 	public void testFindById() {
-		Role role = roleDao.get(4L);
+		Role role = roleDao.get(14L);
 		System.out.println(role.toString());
 		
 		Role expectedRole =new Role();
-		expectedRole.setId(4L);
+		expectedRole.setId(14L);
 		expectedRole.setClientId("123123123");
 		expectedRole.setName("role_2");
 		
 		
-		assertEquals(expectedRole.getId(), role.getId());
+		assertEquals(expectedRole.toString(), role.toString());
 	}	
 		
-	//@Test
+	@Test
 	public void testInsertAndFind() {
 		Role roleCompare = new Role("role_3");
 		
@@ -54,10 +54,9 @@ public class RoleDaoTest extends BaseDaoTest{
 		
 		roleCompare.setUsers(users);
 		roleCompare = roleDao.save(roleCompare);
-		System.out.println(roleCompare.toString());
 		
-		for (User user : roleCompare.getUsers()) {
-			System.out.println(user.toString());
-		}
+		Role roleNew = roleDao.get(roleCompare.getId());
+		
+		assertEquals(roleNew.toString(), roleCompare.toString());
 	}
 }

@@ -2,9 +2,14 @@ package com.anabatic.training.trainings.endpoint.param.contract;
 
 import java.util.Date;
 
+import com.anabatic.training.trainings.persistence.annotation.TrainingNameValidate;
+
 public class TrainingRequest {
 	private Long id;
+	
+	@TrainingNameValidate
 	private String trainingName;
+	
 	private String training_description;
 	private String location;
 	private Date trainingDate;

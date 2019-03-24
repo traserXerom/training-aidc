@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-<!-- 	<training_role role_id="1"  version="0"  authoriser="admin3"  -->
-<!-- 	  	created_by="admin" created_time="2019-12-31 23:56:55.0"  -->
-<!-- 	  	status="LIVE" updated_by="admin" -->
-<!-- 	  	client_id="123123123" role_name="role_1" /> -->
-<!-- 	<training_role role_id="2"  version="0"  authoriser="admin3"  -->
-<!-- 	  	created_by="admin" created_time="2019-12-31 23:56:55.0"  -->
-<!-- 	  	status="LIVE" updated_by="admin" -->
-<!-- 	  	client_id="123123123" role_name="role_2" /> -->
-<!-- 	<training_user user_id="3"  version="0"  authoriser="admin3"  -->
-<!-- 	  	created_by="admin" created_time="2019-12-31 23:56:55.0"  -->
-<!-- 	  	status="LIVE" updated_by="admin" -->
-<!-- 	  	client_id="123123123" user_name="user_1" user_password="user_pass_1" role_id="1" /> -->
-<!-- 	<training_user user_id="4"  version="0"  authoriser="admin3"  -->
-<!-- 	  	created_by="admin" created_time="2019-12-31 23:56:55.0"  -->
-<!-- 	  	status="LIVE" updated_by="admin" -->
-<!-- 	  	client_id="123123123" user_name="user_2" user_password="user_pass_2" role_id="2"/> -->
+	<training_role role_id="1"  version="0"  authoriser="admin3" 
+	  	created_by="admin" created_time="2019-12-31 23:56:55.0" 
+	  	status="LIVE" updated_by="admin"
+	  	client_id="123123123" role_name="role_1" />
+	<training_role role_id="2"  version="0"  authoriser="admin3" 
+	  	created_by="admin" created_time="2019-12-31 23:56:55.0" 
+	  	status="LIVE" updated_by="admin"
+	  	client_id="123123123" role_name="role_2" />
+	<training_user user_id="3"  version="0"  authoriser="admin3" 
+	  	created_by="admin" created_time="2019-12-31 23:56:55.0" 
+	  	status="LIVE" updated_by="admin"
+	  	client_id="123123123" user_name="user_1" user_password="user_pass_1" role_id="1" />
+	<training_user user_id="4"  version="0"  authoriser="admin3" 
+	  	created_by="admin" created_time="2019-12-31 23:56:55.0" 
+	  	status="LIVE" updated_by="admin"
+	  	client_id="123123123" user_name="user_2" user_password="user_pass_2" role_id="2"/>
 	  	
 	  	
 	  	

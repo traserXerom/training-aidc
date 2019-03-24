@@ -9,25 +9,21 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-import com.anabatic.training.trainings.persistence.validator.field.TrainingNameValidator;
-
+import com.anabatic.training.trainings.persistence.validator.object.TrainingDateRangeValidator;
 
 @Documented
-@Constraint(validatedBy= TrainingNameValidator.class)
-@Target( {ElementType.FIELD })
+@Constraint(validatedBy = TrainingDateRangeValidator.class)
+@Target( {ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface TrainingNameValidate {
-
-	String message() default "INVALID_TRAININGNAME";
-	
+public @interface TrainingDateRangeValidate {
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};
 
-	@Target({ ElementType.FIELD })
+	@Target({ ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })
 	@Retention(RetentionPolicy.RUNTIME)
 	@Documented
 	@interface List {
-		TrainingNameValidate[] value();
+		TrainingDateRangeValidate[] value();
 	}
 }

@@ -45,8 +45,7 @@ public class Role extends TypicalGenericModel{
 				+ getCreatedTime() + ", getCreatedBy()=" + getCreatedBy() + ", getUpdatedTime()=" + getUpdatedTime()
 				+ ", getUpdatedBy()=" + getUpdatedBy() + ", getAuthoriser()=" + getAuthoriser()
 				+ ", getAuthorizeTime()=" + getAuthorizeTime() + ", getVersion()=" + getVersion() + ", getStatus()="
-				+ getStatus() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
+				+ getStatus() + "]";
 	}
 
 	public Role(String name) {

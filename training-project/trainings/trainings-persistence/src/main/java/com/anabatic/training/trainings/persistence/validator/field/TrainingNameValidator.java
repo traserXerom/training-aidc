@@ -11,7 +11,7 @@ public class TrainingNameValidator implements ConstraintValidator<TrainingNameVa
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		if(value==null)return true;
 		
-		if(value.contains("name"))return true;
+		if(value.contains("training"))return true;
 		else return false;
 	}
 

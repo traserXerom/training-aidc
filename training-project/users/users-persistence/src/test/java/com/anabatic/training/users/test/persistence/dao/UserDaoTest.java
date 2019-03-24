@@ -45,7 +45,8 @@ public class UserDaoTest extends BaseDaoTest{
 		userNew = userDao.save(userNew);
 		
 		User userGet = userDao.get(userNew.getId());
-		System.out.println(userGet.toString());
+		assertEquals(userNew.toString(), userGet.toString());
+		
 	}
 
 }

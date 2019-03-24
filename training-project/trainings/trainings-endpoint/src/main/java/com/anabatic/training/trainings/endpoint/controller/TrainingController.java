@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anabatic.generic.endpoint.contract.BaseResponse;
+import com.anabatic.generic.persistence.validator.field.ValidationCheck;
 import com.anabatic.training.trainings.endpoint.converter.TrainingConverter;
 import com.anabatic.training.trainings.endpoint.param.contract.TrainingRequest;
 import com.anabatic.training.trainings.persistence.model.Training;
-import com.anabatic.training.trainings.persistence.validator.ValidationCheck;
 import com.anabatic.training.trainings.service.TrainingService;
 
 @RestController
@@ -31,7 +31,7 @@ public class TrainingController {
 		List<Training> trainings = trainingService.getAll();
 		
 		BaseResponse response = new BaseResponse();
-		response.setResponse(trainings);
+		response.setResponse(converter.toContracts(trainings));
 		
 		return ResponseEntity.ok().body(response);
 	}
@@ -43,10 +43,19 @@ public class TrainingController {
 		
 		training = trainingService.save(training);
 		
+		BaseResponse response = new BaseResponse();
+		response.setResponse(converter.toContract(training));
 		
+		return ResponseEntity.ok().body(response);
+	}
+	
+	@PostMapping("/get")
+	public ResponseEntity<BaseResponse> get(@RequestBody TrainingRequest request){
+		Training training = new Training();
+		training = trainingService.get(request.getId());
 		
 		BaseResponse response = new BaseResponse();
-		//response.setResponse(converter.toContract(training));
+		response.setResponse(converter.toContract(training));
 		
 		return ResponseEntity.ok().body(response);
 	}

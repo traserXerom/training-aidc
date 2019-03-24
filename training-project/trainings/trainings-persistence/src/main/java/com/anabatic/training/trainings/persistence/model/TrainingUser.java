@@ -71,7 +71,7 @@ public class TrainingUser extends TypicalGenericModel {
 
 	@Override
 	public String toString() {
-		return "TrainingUser [id=" + id + ", userId=" + userId + ", training=" + training + "]";
+		return "TrainingUser [id=" + id + ", userId=" + userId + ", training=" + training.toString() + "]";
 	}
 	
 	

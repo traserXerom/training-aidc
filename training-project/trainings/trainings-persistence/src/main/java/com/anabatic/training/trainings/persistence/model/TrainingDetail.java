@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.anabatic.generic.core.util.DateUtil;
 import com.anabatic.generic.persistence.model.TypicalGenericModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -31,11 +32,17 @@ public class TrainingDetail extends TypicalGenericModel {
 	@Column(name="training_location")
 	private String location;
 	
-	@Column(name="training_date")
-	private Date trainingDate;
+	@Column(name="training_start_date")
+	private Date trainingStartDate;
+	
+	@Column(name="training_end_date")
+	private Date trainingEndDate;
 	
 	@Column(name="trainer_name")
-	private String trainingName;
+	private String trainerName;
+	
+	@Column(name="training_time")
+	private Integer time;
 	
 	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="training_id")
@@ -46,14 +53,19 @@ public class TrainingDetail extends TypicalGenericModel {
 		super();
 	}
 
-	public TrainingDetail(Long id, String location, Date trainingDate, String trainingName, Training training) {
+	public TrainingDetail(Long id, String location, Date trainingStartDate, Date trainingEndDate, String trainerName,
+			Integer time, Training training) {
 		super();
 		this.id = id;
 		this.location = location;
-		this.trainingDate = trainingDate;
-		this.trainingName = trainingName;
+		this.trainingStartDate = trainingStartDate;
+		this.trainingEndDate = trainingEndDate;
+		this.trainerName = trainerName;
+		this.time = time;
 		this.training = training;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -71,20 +83,12 @@ public class TrainingDetail extends TypicalGenericModel {
 		this.location = location;
 	}
 
-	public Date getTrainingDate() {
-		return trainingDate;
+	public String getTrainerName() {
+		return trainerName;
 	}
 
-	public void setTrainingDate(Date trainingDate) {
-		this.trainingDate = trainingDate;
-	}
-
-	public String getTrainingName() {
-		return trainingName;
-	}
-
-	public void setTrainingName(String trainingName) {
-		this.trainingName = trainingName;
+	public void setTrainerName(String trainerName) {
+		this.trainerName = trainerName;
 	}
 
 	public Training getTraining() {
@@ -95,12 +99,44 @@ public class TrainingDetail extends TypicalGenericModel {
 		this.training = training;
 	}
 
+	public Integer getTime() {
+		return time;
+	}
+
+	public void setTime(Integer time) {
+		this.time = time;
+	}
+
+
+
+	public Date getTrainingStartDate() {
+		return trainingStartDate;
+	}
+
+
+
+	public void setTrainingStartDate(Date trainingStartDate) {
+		this.trainingStartDate = trainingStartDate;
+	}
+
+
+
+	public Date getTrainingEndDate() {
+		return trainingEndDate;
+	}
+
+
+
+	public void setTrainingEndDate(Date trainingEndDate) {
+		this.trainingEndDate = trainingEndDate;
+	}
+
 	@Override
 	public String toString() {
-		return "TrainingDetail [id=" + id + ", location=" + location + ", trainingDate=" + trainingDate
-				+ ", trainingName=" + trainingName + ", training=" + training + "]";
+		return "TrainingDetail [id=" + id + ", location=" + location + ", trainingStartDate=" + DateUtil.convertDateToString(trainingStartDate)
+				+ ", trainingEndDate=" + DateUtil.convertDateToString(trainingEndDate) + ", trainerName=" + trainerName + ", time=" + time
+				+  "]";
 	}
-	
-	
+
 	
 }
