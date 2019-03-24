@@ -10,12 +10,15 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 import com.anabatic.training.trainings.persistence.validator.object.TrainingDateRangeValidator;
+import com.anabatit.training.trainings.core.constant.TrainingErrorConstant;
 
 @Documented
 @Constraint(validatedBy = TrainingDateRangeValidator.class)
 @Target( {ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TrainingDateRangeValidate {
+	String message() default TrainingErrorConstant.INVALID_DATERANGE_KEY;
+	
 	Class<?>[] groups() default {};
 
 	Class<? extends Payload>[] payload() default {};

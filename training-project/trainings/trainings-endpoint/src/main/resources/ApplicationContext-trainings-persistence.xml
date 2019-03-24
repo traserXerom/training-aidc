@@ -9,8 +9,6 @@
 	<!-- DAO -->
 	<bean id="trainingDao" 
 		class="com.anabatic.training.trainings.persistence.dao.impl.TrainingDaoImpl" />
-	<bean id="trainingDetailDao" 
-		class="com.anabatic.training.trainings.persistence.dao.impl.TrainingDetailDaoImpl" />
 	<bean id="trainingUserDao" 
 		class="com.anabatic.training.trainings.persistence.dao.impl.TrainingUserDaoImpl" />
 	

@@ -9,8 +9,6 @@
 	<!-- DAO -->
 	<bean id="trainingService" 
 		class="com.anabatic.training.trainings.service.impl.TrainingServiceImpl" />
-	<bean id="trainingDetailService" 
-		class="com.anabatic.training.trainings.service.impl.TrainingDetailServiceImpl" />
 	<bean id="trainingUserService" 
 		class="com.anabatic.training.trainings.service.impl.TrainingUserServiceImpl" />
 	
