@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.anabatic.training.trainings.endpoint.converter.TrainingConverter;
+import com.anabatic.training.trainings.endpoint.param.bean.TrainingBean;
 import com.anabatic.training.trainings.endpoint.param.contract.TrainingRequest;
 import com.anabatic.training.trainings.persistence.model.Training;
 import com.anabatic.training.trainings.persistence.model.TrainingDetail;
@@ -14,15 +15,18 @@ public class TrainingConverterImpl implements TrainingConverter{
 	public Training toModel(TrainingRequest object) {
 		Training training = new Training();
 		
-		if(object.getId()!=null) {
-			training.setId(object.getId());
+		if(object.getTraining().getId()!=null) {
+			training.setId(object.getTraining().getId());
 		}
-		training.setName(object.getTrainingName());
-		training.setDescription(object.getTraining_description());
+		training.setName(object.getTraining().getTrainingName());
+		training.setDescription(object.getTraining().getTraining_description());
 		training.setTrainingDetail(new TrainingDetail());
 		training.setClientId("1");
-		training.getTrainingDetail().setLocation(object.getLocation());
-		training.getTrainingDetail().setTrainerName(object.getTrainerName());
+		training.getTrainingDetail().setLocation(object.getTraining().getLocation());
+		training.getTrainingDetail().setTrainerName(object.getTraining().getTrainerName());
+		training.getTrainingDetail().setTrainingStartDate(object.getTraining().getTrainingStartDate());
+		training.getTrainingDetail().setTrainingEndDate(object.getTraining().getTrainingEndDate());
+		training.getTrainingDetail().setTime(object.getTraining().getTime());
 		training.getTrainingDetail().setClientId("1");
 		training.getTrainingDetail().setTraining(training);
 		return training;
@@ -38,13 +42,18 @@ public class TrainingConverterImpl implements TrainingConverter{
 
 	@Override
 	public TrainingRequest toContract(Training object) {
+		TrainingBean trainingBean = new TrainingBean();
+		trainingBean.setId(object.getId());
+		trainingBean.setTrainingName(object.getName());
+		trainingBean.setTraining_description(object.getDescription());
+		trainingBean.setLocation(object.getTrainingDetail().getLocation());
+		trainingBean.setTrainingStartDate(object.getTrainingDetail().getTrainingStartDate());
+		trainingBean.setTrainingEndDate(object.getTrainingDetail().getTrainingEndDate());
+		trainingBean.setTime(object.getTrainingDetail().getTime());
+		trainingBean.setTrainerName(object.getTrainingDetail().getTrainerName());
+		
 		TrainingRequest request = new TrainingRequest();
-		request.setId(object.getId());
-		request.setTrainingName(object.getName());
-		request.setTraining_description(object.getDescription());
-		request.setLocation(object.getTrainingDetail().getLocation());
-		request.setTrainingDate(object.getTrainingDetail().getTrainingDate());
-		request.setTrainerName(object.getTrainingDetail().getTrainerName());
+		request.setTraining(trainingBean);
 		
 		return request;
 	}
@@ -57,8 +66,7 @@ public class TrainingConverterImpl implements TrainingConverter{
 		for (Training object : objects) {
 			trainingRequests.add(toContract(object));
 		}
-		
-		// TODO Auto-generated method stub
+	
 		return trainingRequests;
 	}
 

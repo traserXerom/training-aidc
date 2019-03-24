@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anabatic.generic.endpoint.contract.BaseResponse;
-import com.anabatic.generic.persistence.validator.field.ValidationCheck;
 import com.anabatic.training.trainings.endpoint.converter.TrainingConverter;
 import com.anabatic.training.trainings.endpoint.param.contract.TrainingRequest;
 import com.anabatic.training.trainings.persistence.model.Training;
+import com.anabatic.training.trainings.persistence.validator.TrainingValidationCheck;
 import com.anabatic.training.trainings.service.TrainingService;
 
 @RestController
@@ -38,9 +38,8 @@ public class TrainingController {
 	
 	@PostMapping("/insert")
 	public ResponseEntity<BaseResponse> insert(@RequestBody TrainingRequest request){
+		TrainingValidationCheck.hasValidate(request);
 		Training training = converter.toModel(request);
-		ValidationCheck.hasValidate(training);
-		
 		training = trainingService.save(training);
 		
 		BaseResponse response = new BaseResponse();
@@ -52,7 +51,7 @@ public class TrainingController {
 	@PostMapping("/get")
 	public ResponseEntity<BaseResponse> get(@RequestBody TrainingRequest request){
 		Training training = new Training();
-		training = trainingService.get(request.getId());
+		training = trainingService.get(request.getTraining().getId());
 		
 		BaseResponse response = new BaseResponse();
 		response.setResponse(converter.toContract(training));

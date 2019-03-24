@@ -1,8 +1,10 @@
 package com.anabatic.training.trainings.persistence.dao;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.text.ParseException;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -24,6 +26,9 @@ public class TrainingUserTest extends BaseDaoTest {
 	
 	@Autowired
 	private TrainingUserDao trainingUserDao;
+	
+	@Autowired
+	private TrainingDao trainingDao;
 	
 	Training trainingObject;
 
@@ -83,11 +88,15 @@ public class TrainingUserTest extends BaseDaoTest {
 		
 		trainingUser.setId(trainingUserNew.getId());
 		
-		//Training trainingCompare = new Training();
-		//trainingCompare = trainingDao.get(trainingNew.getId());
-		
-		
 		assertEquals(trainingUser.toString(), trainingUserNew.toString());
+	}
+	
+	@Test
+	public void testGetByTrainingId() {
+		
+		List<TrainingUser> trainingUsers = trainingUserDao.getByTrainingId(11L);
+		System.out.println(trainingUsers.toString());
+		assertNotNull(trainingUsers);
 	}
 
 }

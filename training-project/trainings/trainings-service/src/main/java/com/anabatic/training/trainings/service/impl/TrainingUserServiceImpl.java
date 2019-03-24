@@ -1,5 +1,7 @@
 package com.anabatic.training.trainings.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.anabatic.generic.service.impl.TypicalGenericServiceImpl;
@@ -16,6 +18,11 @@ public class TrainingUserServiceImpl extends TypicalGenericServiceImpl<TrainingU
 		this.trainingUserDao = trainingUserDao;
 		this.typicalGenericDao = trainingUserDao;
 		this.genericDao = trainingUserDao;
+	}
+
+	@Override
+	public List<TrainingUser> getByTrainingId(Long id) {
+		return trainingUserDao.getByTrainingId(id);
 	}
 	
 	

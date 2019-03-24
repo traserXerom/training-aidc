@@ -9,5 +9,7 @@
 	<!-- DAO -->
 	<bean id="trainingConverter" 
 		class="com.anabatic.training.trainings.endpoint.converter.impl.TrainingConverterImpl" />
+	<bean id="trainingUserConverter" 
+		class="com.anabatic.training.trainings.endpoint.converter.impl.TrainingUserConverterImpl" />
 	
 </beans>

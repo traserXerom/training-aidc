@@ -10,6 +10,7 @@ import javax.validation.Constraint;
 import javax.validation.Payload;
 
 import com.anabatic.training.trainings.persistence.validator.field.TrainingNameValidator;
+import com.anabatit.training.trainings.core.constant.TrainingErrorConstant;
 
 
 @Documented
@@ -18,7 +19,7 @@ import com.anabatic.training.trainings.persistence.validator.field.TrainingNameV
 @Retention(RetentionPolicy.RUNTIME)
 public @interface TrainingNameValidate {
 
-	String message() default "INVALID_TRAININGNAME";
+	String message() default TrainingErrorConstant.INVALID_TRAININGNAME_KEY;
 	
 	Class<?>[] groups() default {};
 
