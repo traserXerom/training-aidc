@@ -52,7 +52,7 @@ public class TrainingController {
 	@PostMapping("/get")
 	public ResponseEntity<BaseResponse> get(@RequestBody TrainingRequest request){
 		Training training = new Training();
-		training = trainingService.get(request.getId());
+		training = trainingService.get(request.getTraining().getId());
 		
 		BaseResponse response = new BaseResponse();
 		response.setResponse(converter.toContract(training));

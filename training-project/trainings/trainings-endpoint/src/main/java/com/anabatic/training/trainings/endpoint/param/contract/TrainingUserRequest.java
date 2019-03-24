@@ -1,20 +1,29 @@
 package com.anabatic.training.trainings.endpoint.param.contract;
 
+import com.anabatic.training.trainings.endpoint.param.bean.TrainingBean;
+
 public class TrainingUserRequest {
 
+	private Long id;
 	private Long userId;
-	private Long trainingId;
+	private TrainingBean trainingBean;
 	public Long getUserId() {
 		return userId;
 	}
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	public Long getTrainingId() {
-		return trainingId;
+	public Long getId() {
+		return id;
 	}
-	public void setTrainingId(Long trainingId) {
-		this.trainingId = trainingId;
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public TrainingBean getTrainingBean() {
+		return trainingBean;
+	}
+	public void setTrainingBean(TrainingBean trainingBean) {
+		this.trainingBean = trainingBean;
 	}
 	
 	
