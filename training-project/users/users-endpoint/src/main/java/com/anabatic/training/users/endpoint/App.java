@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.anabatic.generic.endpoint.controlleradvice.GenericControllerAdvice;
+import com.anabatic.logging.configuration.LoggingConfiguration;
 
 /**
  * Hello world!
@@ -27,7 +28,9 @@ import com.anabatic.generic.endpoint.controlleradvice.GenericControllerAdvice;
 "classpath*:applicationContext-generic-endpoint.xml",
 "classpath*:applicationContext-generic-service.xml"})
 @ComponentScan(basePackages={"com.anabatic.training.users.endpoint.controller"})
-@Import(value= {GenericControllerAdvice.class})
+@Import({
+	GenericControllerAdvice.class,
+	LoggingConfiguration.class})
 public class App 
 {
 	public static void main(String[] args) {

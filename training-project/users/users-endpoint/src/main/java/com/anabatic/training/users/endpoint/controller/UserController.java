@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.anabatic.generic.endpoint.contract.BaseResponse;
 import com.anabatic.generic.persistence.validator.field.ValidationCheck;
+import com.anabatic.logging.annotation.Log;
 import com.anabatic.training.users.endpoint.converter.UserConverter;
 import com.anabatic.training.users.endpoint.param.contract.UserGetByIdRequest;
 import com.anabatic.training.users.endpoint.param.contract.UserInsertRequest;
@@ -27,6 +28,7 @@ public class UserController {
 	private UserConverter userConverter;
 	
 	@PostMapping("")
+	@Log(message="GET request on /customeraccountopening submitted")
 	public ResponseEntity<BaseResponse> getAll(){
 		List<User> users = userService.getAll();
 		

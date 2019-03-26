@@ -18,6 +18,7 @@
 		<anabatic.generic.version>1.0.0.1-SNAPSHOT</anabatic.generic.version>
 		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
 		<org.dbunit.version>2.4.9</org.dbunit.version>
+		<logging-lib.version>1.0.0.1-SNAPSHOT</logging-lib.version>
 	</properties>
 	
 	<dependencies>
