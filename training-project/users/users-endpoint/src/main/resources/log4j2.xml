@@ -26,18 +26,7 @@
 		</Failover>
 	</Appenders>
 	<Loggers>	
-		<Logger name="com.anabatic" level="DEBUG" additivity="false">
-			<!-- <AppenderRef ref="Console" /> -->
-			<!--<AppenderRef ref="File" /> -->
-			<AppenderRef ref="RollingFile"/>
-		</Logger>
-
-		<Logger name="org.springframework.core" level="info" additivity="false">
-			<!-- <AppenderRef ref="Console" /> -->
-			<!--<AppenderRef ref="File" /> -->
-			<AppenderRef ref="RollingFile"/>
-		</Logger>
-		<Root level="DEBUG">
+		<Root level="ERROR">
 <!-- 			<AppenderRef ref="STDOUT" /> -->
 <!-- 			<AppenderRef ref="RollingFile" /> -->
 <AppenderRef ref="Console" />

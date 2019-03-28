@@ -1,7 +1,9 @@
 package com.anabatic.training.trainings.endpoint.param.contract;
 
 import com.anabatic.training.trainings.endpoint.param.bean.TrainingBean;
+import com.anabatic.training.trainings.persistence.annotation.TrainingDateRangeValidate;
 
+@TrainingDateRangeValidate
 public class TrainingUserRequest {
 
 	private Long id;
